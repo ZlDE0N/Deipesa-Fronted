@@ -1,0 +1,64 @@
+<main id="main" class="main">
+
+    <button (click)="onCreateMaterial()" mat-raised-button>
+       <mat-icon>add</mat-icon>
+       Nuevo Material
+     </button>
+     
+     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+       <ng-container matColumnDef="id">
+         <th mat-header-cell *matHeaderCellDef>Id</th>
+         <td mat-cell *matCellDef="let material">{{ material.idMaterial }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="name">
+         <th mat-header-cell *matHeaderCellDef>Nombre</th>
+         <td mat-cell *matCellDef="let material">{{ material.nombreMaterial }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="measurementUnit">
+         <th mat-header-cell *matHeaderCellDef>Unidad De Medida</th>
+         <td mat-cell *matCellDef="let material">{{ material.unidadDeMedida }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="description">
+         <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+         <td mat-cell *matCellDef="let material">{{ material.descripcion }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="brand">
+         <th mat-header-cell *matHeaderCellDef>Marca</th>
+         <td mat-cell *matCellDef="let material">{{ material.marca }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="pvu">
+         <th mat-header-cell *matHeaderCellDef>PVU</th>
+         <td mat-cell *matCellDef="let material">{{ material.pvu }}</td>
+       </ng-container>
+     
+       <ng-container matColumnDef="actions">
+         <th mat-header-cell *matHeaderCellDef>Acciones</th>
+         <td mat-cell *matCellDef="let material">
+           <button
+             (click)="onEdit(material.idMaterial)"
+             color="primary"
+             matTooltip="Editar"
+             mat-icon-button
+           >
+             <mat-icon>edit</mat-icon>
+           </button>
+           <button
+             (click)="onDelete(material.idMaterial)"
+             color="warn"
+             matTooltip="Borrar"
+             mat-icon-button
+           >
+             <mat-icon>delete_forever</mat-icon>
+           </button>
+         </td>
+       </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+       <tr mat-row *matRowDef="let material; columns: displayedColumns"></tr>
+     </table>
+</main>
