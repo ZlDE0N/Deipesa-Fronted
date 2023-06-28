@@ -41,14 +41,18 @@ import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 ///Angular Material
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InventarioManaguaComponent } from './components/inventario-managua/inventario-managua.component';
+import { GestionMaterialesManaguaComponent } from './components/gestion-materiales-managua/gestion-materiales-managua.component';
+import { ProveedoresManaguaComponent } from './components/proveedores-managua/proveedores-managua.component';
+import { ContratosManaguaComponent } from './components/contratos-managua/contratos-managua.component';
+import { AgendaContactosManaguaComponent } from './components/agenda-contactos-managua/agenda-contactos-managua.component';
+import { InventarioChinandegaComponent } from './components/inventario-chinandega/inventario-chinandega.component';
+import { GestionMaterialesChinandegaComponent } from './components/gestion-materiales-chinandega/gestion-materiales-chinandega.component';
+import { ProveedoresChinandegaComponent } from './components/proveedores-chinandega/proveedores-chinandega.component';
+import { ContratosChinandegaComponent } from './components/contratos-chinandega/contratos-chinandega.component';
+import { AgendaContactosChinandegaComponent } from './components/agenda-contactos-chinandega/agenda-contactos-chinandega.component';
+import { AngularMaterialModule } from './shared/modules/angular-material.module';
+import { PaginatedTableComponent } from './shared/components/paginated-table/paginated-table.component';
 
 @NgModule({
   declarations: [
@@ -87,23 +91,26 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     PagesRegisterComponent,
     PagesLoginComponent,
     PagesError404Component,
-    PagesBlankComponent
+    PagesBlankComponent,
+    InventarioManaguaComponent,
+    GestionMaterialesManaguaComponent,
+    ProveedoresManaguaComponent,
+    ContratosManaguaComponent,
+    AgendaContactosManaguaComponent,
+    InventarioChinandegaComponent,
+    GestionMaterialesChinandegaComponent,
+    ProveedoresChinandegaComponent,
+    ContratosChinandegaComponent,
+    AgendaContactosChinandegaComponent,
+    PaginatedTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // Angular-Material
-    MatTableModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatIconModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    MatInputModule,
+    AngularMaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
