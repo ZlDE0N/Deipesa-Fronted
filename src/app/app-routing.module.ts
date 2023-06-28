@@ -32,6 +32,16 @@ import { PagesFaqComponent } from './pages/pages-faq/pages-faq.component';
 import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesRegisterComponent } from './pages/pages-register/pages-register.component';
 import { UsersProfileComponent } from './pages/users-profile/users-profile.component';
+import { InventarioManaguaComponent } from './components/inventario-managua/inventario-managua.component';
+import { GestionMaterialesManaguaComponent } from './components/gestion-materiales-managua/gestion-materiales-managua.component';
+import { ProveedoresManaguaComponent } from './components/proveedores-managua/proveedores-managua.component';
+import { ContratosManaguaComponent } from './components/contratos-managua/contratos-managua.component';
+import { AgendaContactosManaguaComponent } from './components/agenda-contactos-managua/agenda-contactos-managua.component';
+import { InventarioChinandegaComponent } from './components/inventario-chinandega/inventario-chinandega.component';
+import { GestionMaterialesChinandegaComponent } from './components/gestion-materiales-chinandega/gestion-materiales-chinandega.component';
+import { ContratosChinandegaComponent } from './components/contratos-chinandega/contratos-chinandega.component';
+import { AgendaContactosChinandegaComponent } from './components/agenda-contactos-chinandega/agenda-contactos-chinandega.component';
+import { ProveedoresChinandegaComponent } from './components/proveedores-chinandega/proveedores-chinandega.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -67,6 +77,18 @@ const routes: Routes = [
   { path: 'pages-login', component: PagesLoginComponent },
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
+  // Alamacen Managua
+  { path: 'inventario-managua', component: InventarioManaguaComponent },
+  { path: 'gestion-materiales-managua', component: GestionMaterialesManaguaComponent },
+  { path: 'proveedores-managua', component: ProveedoresManaguaComponent },
+  { path: 'contratos-managua', component: ContratosManaguaComponent },
+  { path: 'agenda-contactos-managua', component: AgendaContactosManaguaComponent },
+  // Almacen Chinandega
+  { path: 'inventario-chinandega', component: InventarioChinandegaComponent }, 
+  { path: 'gestion-materiales-chinandega', component: GestionMaterialesChinandegaComponent }, 
+  { path: 'proveedores-chinanadega', component: ProveedoresChinandegaComponent}, 
+  { path: 'contratos-chinandega', component: ContratosChinandegaComponent },
+  { path: 'agenda-contactos-chinandega', component: AgendaContactosChinandegaComponent },
 ];
 
 @NgModule({
