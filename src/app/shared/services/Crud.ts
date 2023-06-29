@@ -18,17 +18,23 @@ export abstract class Crud<
   }
 
   create(newResource: CreateDto): Observable<HttpResponse<any>> {
-    return this.http.post<any>(`${this.resourceUrl}`, newResource);
+    return this.http.post<any>(`${this.resourceUrl}`, newResource, {
+      observe: 'response',
+    });
   }
 
   update(
     id: IdType,
     updatedResource: UpdateDto
   ): Observable<HttpResponse<any>> {
-    return this.http.put<any>(`${this.resourceUrl}${id}`, updatedResource);
+    return this.http.put<any>(`${this.resourceUrl}${id}`, updatedResource, {
+      observe: 'response',
+    });
   }
 
   delete(id: IdType): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(`${this.resourceUrl}${id}`);
+    return this.http.delete<any>(`${this.resourceUrl}${id}`, {
+      observe: 'response',
+    });
   }
 }
