@@ -1,0 +1,15 @@
+:host ::ng-deep .mat-cell {
+  padding: 8px;
+}
+
+:host ::ng-deep .mat-header-cell {
+  padding: 0 16px 0 16px;
+}
+
+:host ::ng-deep table {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-column-actions {
+  width: 120px;
+}

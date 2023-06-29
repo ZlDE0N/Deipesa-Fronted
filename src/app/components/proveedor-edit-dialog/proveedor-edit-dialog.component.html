@@ -20,7 +20,14 @@
 
       <mat-form-field>
         <mat-label>Dirección</mat-label>
-        <input matInput required formControlName="direccion" />
+        <textarea
+          matInput
+          required
+          formControlName="direccion"
+          cdkTextareaAutosize
+          cdkAutosizeMaxRows="5"
+          cdkAutosizeMinRows="1"
+        ></textarea>
         <mat-error
           *ngFor="let error of getErrors(form.get('direccion')!, 'Dirección')"
         >
