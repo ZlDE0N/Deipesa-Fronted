@@ -55,6 +55,8 @@ import { AngularMaterialModule } from './shared/modules/angular-material.module'
 import { PaginatedTableComponent } from './shared/components/paginated-table/paginated-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InventoryEditDialogComponent } from './components/inventory-edit-dialog/inventory-edit-dialog.component';
+import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContratosChinandegaComponent,
     AgendaContactosChinandegaComponent,
     PaginatedTableComponent,
+    InventoryEditDialogComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export interface BaseEditDialogResult<Model> {
 }
 
 @Component({ template: '' })
-export abstract class BaseEditDialogComponent<Model, IdType = number>
+export abstract class EditDialogComponent<Model, IdType = number>
   extends FormComponent
   implements OnInit
 {
@@ -25,7 +25,7 @@ export abstract class BaseEditDialogComponent<Model, IdType = number>
   constructor(
     @Inject(MAT_DIALOG_DATA) protected data: BaseEditDialogData<IdType>,
     protected dialogRef: MatDialogRef<
-      BaseEditDialogComponent<Model>,
+      EditDialogComponent<Model, IdType>,
       BaseEditDialogResult<Model>
     >
   ) {

@@ -4,7 +4,7 @@
     [displayedColumns]="displayedColumns"
     [tableActions]="tableActions"
     [rowActions]="rowActions"
-    [rows]="(materials$ | async) ?? []"
+    [rows]="(inventories$ | async) ?? []"
     tableClasses="mat-elevation-z8"
   ></app-paginated-table>
 </main>

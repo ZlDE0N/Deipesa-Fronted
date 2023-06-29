@@ -9,19 +9,13 @@ import { Inventario } from '../models/Inventario';
 @Injectable({
   providedIn: 'root',
 })
-export class AlmacenService extends Crud<
-  Almacen,
-  string,
-  Omit<Almacen, 'idAlmacen'>
-> {
+export class AlmacenService extends Crud<Almacen, string> {
   constructor(http: HttpClient) {
     const resourceUrl = `${environment.apiBaseUrl}${environment.almacenesEndpoint}`;
     super(http, resourceUrl);
   }
 
-  getByLocation(location: string): Observable<Almacen[]> {
-    return this.http.get<Almacen[]>(
-      `${this.resourceUrl}by-location/${location}`
-    );
+  getByLocation(location: string): Observable<Almacen> {
+    return this.http.get<Almacen>(`${this.resourceUrl}by-location/${location}`);
   }
 }
