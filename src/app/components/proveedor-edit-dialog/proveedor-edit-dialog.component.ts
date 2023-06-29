@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Inventario } from 'src/app/models/Inventario';
 import { MaterialService } from 'src/app/services/material.service';
 import {
   EditDialogComponent,

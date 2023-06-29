@@ -1,3 +1,10 @@
 <main id="main" class="main">
-    <p>contratos-managua works!</p>
+  <app-paginated-table
+    [columns]="tableColumns"
+    [tableActions]="tableActions"
+    [rowActions]="rowActions"
+    [displayedColumns]="displayedColumns"
+    [rows]="(contracts$ | async) ?? []"
+    tableClasses="mat-elevation-z8"
+  ></app-paginated-table>
 </main>

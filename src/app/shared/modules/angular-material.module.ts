@@ -12,6 +12,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 const materialModules = [
   MatTableModule,
@@ -28,11 +30,14 @@ const materialModules = [
   MatProgressSpinnerModule,
   MatSelectModule,
   MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, ...materialModules],
   exports: [...materialModules],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-NI' }],
 })
 export class AngularMaterialModule {}

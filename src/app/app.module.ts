@@ -58,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InventoryEditDialogComponent } from './components/inventory-edit-dialog/inventory-edit-dialog.component';
 import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
 import { ProveedorEditDialogComponent } from './components/proveedor-edit-dialog/proveedor-edit-dialog.component';
+import { ContratoEditDialogComponent } from './components/contrato-edit-dialog/contrato-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { ProveedorEditDialogComponent } from './components/proveedor-edit-dialog
     InventoryEditDialogComponent,
     ConfirmDialogComponent,
     ProveedorEditDialogComponent,
+    ContratoEditDialogComponent,
   ],
   imports: [
     BrowserModule,
