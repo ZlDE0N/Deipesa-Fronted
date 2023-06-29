@@ -1,7 +1,7 @@
 import { Ciudad } from './Ciudad';
 
 export interface Proveedor {
-  idProveedor: string;
+  idproveedor: string;
   ciudadId: number;
   nombreProveedor?: string;
   direccion?: string;

@@ -57,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InventoryEditDialogComponent } from './components/inventory-edit-dialog/inventory-edit-dialog.component';
 import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
+import { ProveedorEditDialogComponent } from './components/proveedor-edit-dialog/proveedor-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confi
     PaginatedTableComponent,
     InventoryEditDialogComponent,
     ConfirmDialogComponent,
+    ProveedorEditDialogComponent,
   ],
   imports: [
     BrowserModule,

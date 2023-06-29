@@ -1,3 +1,10 @@
 <main id="main" class="main">
-    <p>proveedores-managua works!</p>
+  <app-paginated-table
+    [columns]="tableColumns"
+    [displayedColumns]="displayedColumns"
+    [tableActions]="tableActions"
+    [rowActions]="rowActions"
+    [rows]="(providers$ | async) ?? []"
+    tableClasses="mat-elevation-z8"
+  ></app-paginated-table>
 </main>
