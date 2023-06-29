@@ -5,6 +5,6 @@ export interface Ciudad {
   id: number;
   name: string;
 
-  almacenes: Almacen[];
-  proveedores: Proveedor[];
+  almacenes?: Almacen[];
+  proveedores?: Proveedor[];
 }

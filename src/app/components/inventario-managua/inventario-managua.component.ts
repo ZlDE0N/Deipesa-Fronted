@@ -22,6 +22,8 @@ import {
   ConfirmDialogResult,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { InventarioService } from 'src/app/services/inventario.service';
+import { Ciudad } from 'src/app/models/Ciudad';
+import { CiudadService } from 'src/app/services/ciudad.service';
 
 @Component({
   selector: 'app-inventario-managua',
@@ -90,10 +92,12 @@ export class InventarioManaguaComponent implements OnInit {
 
   warehouse$!: Observable<Almacen>;
   inventories$!: Observable<Inventario[]>;
+  city$!: Observable<Ciudad>;
 
   constructor(
     private almacenService: AlmacenService,
     private inventoryService: InventarioService,
+    private citiesService: CiudadService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {}
@@ -102,8 +106,10 @@ export class InventarioManaguaComponent implements OnInit {
     this.loadData();
   }
 
-  loadData() {
-    this.warehouse$ = this.almacenService.getByLocation('managua');
+  async loadData() {
+    this.city$ = this.citiesService.getByName('Managua');
+    const city = await lastValueFrom(this.city$);
+    this.warehouse$ = this.almacenService.getByLocation(city.id);
     this.inventories$ = this.warehouse$.pipe(map((w) => w.inventarios));
   }
 

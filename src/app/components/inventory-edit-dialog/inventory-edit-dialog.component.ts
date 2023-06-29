@@ -15,9 +15,7 @@ import {
 export interface InventoryEditDialogData extends BaseEditDialogData<string> {
   idAlmacen: string;
 }
-import { v4 as uuidv4 } from 'uuid';
 import ShortUniqueId from 'short-unique-id';
-import * as short from 'short-uuid';
 
 const uid = new ShortUniqueId({
   length: 5,

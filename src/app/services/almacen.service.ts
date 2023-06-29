@@ -15,7 +15,9 @@ export class AlmacenService extends Crud<Almacen, string> {
     super(http, resourceUrl);
   }
 
-  getByLocation(location: string): Observable<Almacen> {
-    return this.http.get<Almacen>(`${this.resourceUrl}by-location/${location}`);
+  getByLocation(locationId: number): Observable<Almacen> {
+    return this.http.get<Almacen>(
+      `${this.resourceUrl}by-location/${locationId}`
+    );
   }
 }
