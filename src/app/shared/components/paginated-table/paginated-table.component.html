@@ -51,6 +51,7 @@
         *ngFor="let action of rowActions"
         [color]="action.color"
         [matTooltip]="action.tooltip"
+        (click)="action.action(element)"
       >
         <mat-icon>{{ action.icon }}</mat-icon>
       </button>
