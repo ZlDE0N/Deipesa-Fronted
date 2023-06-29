@@ -18,20 +18,17 @@ export interface ConfirmDialogResult {
 @Component({
   selector: 'app-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
-  styleUrls: ['./confirm-dialog.component.scss']
+  styleUrls: ['./confirm-dialog.component.css'],
 })
 export class ConfirmDialogComponent {
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData,
-    private dialogRef: MatDialogRef<ConfirmDialogComponent, ConfirmDialogResult>,
-  ) {
-  }
+    private dialogRef: MatDialogRef<ConfirmDialogComponent, ConfirmDialogResult>
+  ) {}
 
   onConfirm(): void {
     this.dialogRef.close({
       confirmed: true,
     });
   }
-
 }
