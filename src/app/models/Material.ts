@@ -1,4 +1,5 @@
 import { DetalleOrdenCompra } from './DetalleOrdenCompra';
+import { Inventario } from './Inventario';
 
 export interface Material {
   idMaterial: string;
@@ -8,4 +9,5 @@ export interface Material {
   marca?: string;
   pvu?: number;
   detalleOrdenCompras: DetalleOrdenCompra[];
+  inventarios: Inventario[];
 }

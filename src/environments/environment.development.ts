@@ -3,4 +3,6 @@ export const environment = {
   proveedoresEndpoint: 'Proveedores/',
   materialesEndpoint: 'Materiales/',
   facturasEndpoint: 'Facturas/',
+  almacenesEndpoint: 'Almacenes/',
+  inventariosEndpoint: 'Inventarios/',
 };
