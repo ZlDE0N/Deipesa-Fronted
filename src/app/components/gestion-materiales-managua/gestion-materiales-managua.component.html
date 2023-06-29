@@ -1,3 +1,10 @@
 <main id="main" class="main">
-    <p>gestion-materiales-managua works!</p>
+  <app-paginated-table
+    [columns]="tableColumns"
+    [displayedColumns]="displayedColumns"
+    [tableActions]="tableActions"
+    [rowActions]="rowActions"
+    [rows]="(inventories$ | async) ?? []"
+    tableClasses="mat-elevation-z8"
+  ></app-paginated-table>
 </main>

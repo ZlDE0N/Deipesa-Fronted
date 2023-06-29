@@ -59,36 +59,20 @@ export class InventarioManaguaComponent implements OnInit {
       header: 'Stock mínimo',
       sortable: true,
     },
-  ];
-
-  tableActions: TableAction<Inventario>[] = [
     {
-      label: 'Agregar material',
-      icon: 'add',
-      color: 'primary',
-      action: () => this.onCreateMaterial(),
+      propertyName: 'pvu',
+      header: 'PVU',
+      sortable: true,
+      valueGetter: (row: Inventario) =>
+        row.idMaterialNavigation?.pvu?.toLocaleString('es-NI', {
+          style: 'currency',
+          currency: 'NIO',
+          maximumFractionDigits: 2,
+        }) ?? 'N/A',
     },
   ];
 
-  rowActions: TableRowAction<Inventario>[] = [
-    {
-      icon: 'edit',
-      tooltip: 'Editar',
-      color: 'primary',
-      action: (row: Inventario) => this.onEditMaterial(row),
-    },
-    {
-      icon: 'delete',
-      tooltip: 'Eliminar',
-      color: 'warn',
-      action: (row: Inventario) => this.onDeleteInventory(row),
-    },
-  ];
-
-  displayedColumns: string[] = [
-    ...this.tableColumns.map((c) => c.propertyName),
-    'actions',
-  ];
+  displayedColumns: string[] = this.tableColumns.map((c) => c.propertyName);
 
   warehouse$!: Observable<Almacen>;
   inventories$!: Observable<Inventario[]>;

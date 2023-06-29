@@ -61,34 +61,7 @@ export class InventarioChinandegaComponent implements OnInit {
     },
   ];
 
-  tableActions: TableAction<Inventario>[] = [
-    {
-      label: 'Agregar material',
-      icon: 'add',
-      color: 'primary',
-      action: () => this.onCreateMaterial(),
-    },
-  ];
-
-  rowActions: TableRowAction<Inventario>[] = [
-    {
-      icon: 'edit',
-      tooltip: 'Editar',
-      color: 'primary',
-      action: (row: Inventario) => this.onEditMaterial(row),
-    },
-    {
-      icon: 'delete',
-      tooltip: 'Eliminar',
-      color: 'warn',
-      action: (row: Inventario) => this.onDeleteInventory(row),
-    },
-  ];
-
-  displayedColumns: string[] = [
-    ...this.tableColumns.map((c) => c.propertyName),
-    'actions',
-  ];
+  displayedColumns: string[] = this.tableColumns.map((c) => c.propertyName);
 
   city$!: Observable<Ciudad>;
   warehouse$!: Observable<Almacen>;
