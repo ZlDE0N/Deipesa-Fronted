@@ -44,7 +44,6 @@ import { AgendaContactosChinandegaComponent } from './components/agenda-contacto
 import { ProveedoresChinandegaComponent } from './components/proveedores-chinandega/proveedores-chinandega.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'alerts', component: AlertsComponent },
   { path: 'accordion', component: AccordionComponent },
@@ -79,20 +78,36 @@ const routes: Routes = [
   { path: 'user-profile', component: UsersProfileComponent },
   // Alamacen Managua
   { path: 'inventario-managua', component: InventarioManaguaComponent },
-  { path: 'gestion-materiales-managua', component: GestionMaterialesManaguaComponent },
+  {
+    path: 'gestion-materiales-managua',
+    component: GestionMaterialesManaguaComponent,
+  },
   { path: 'proveedores-managua', component: ProveedoresManaguaComponent },
   { path: 'contratos-managua', component: ContratosManaguaComponent },
-  { path: 'agenda-contactos-managua', component: AgendaContactosManaguaComponent },
+  {
+    path: 'agenda-contactos-managua',
+    component: AgendaContactosManaguaComponent,
+  },
   // Almacen Chinandega
-  { path: 'inventario-chinandega', component: InventarioChinandegaComponent }, 
-  { path: 'gestion-materiales-chinandega', component: GestionMaterialesChinandegaComponent }, 
-  { path: 'proveedores-chinanadega', component: ProveedoresChinandegaComponent}, 
+  { path: 'inventario-chinandega', component: InventarioChinandegaComponent },
+  {
+    path: 'gestion-materiales-chinandega',
+    component: GestionMaterialesChinandegaComponent,
+  },
+  {
+    path: 'proveedores-chinanadega',
+    component: ProveedoresChinandegaComponent,
+  },
   { path: 'contratos-chinandega', component: ContratosChinandegaComponent },
-  { path: 'agenda-contactos-chinandega', component: AgendaContactosChinandegaComponent },
+  {
+    path: 'agenda-contactos-chinandega',
+    component: AgendaContactosChinandegaComponent,
+  },
+  { path: '', component: DashboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

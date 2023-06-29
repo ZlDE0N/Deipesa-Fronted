@@ -13,8 +13,8 @@ export abstract class Crud<
     return this.http.get<Model>(`${this.resourceUrl}${id}`);
   }
 
-  getAll(): Observable<Model> {
-    return this.http.get<Model>(`${this.resourceUrl}`);
+  getAll(): Observable<Model[]> {
+    return this.http.get<Model[]>(`${this.resourceUrl}`);
   }
 
   create(newResource: CreateDto): Observable<HttpResponse<any>> {

@@ -53,6 +53,8 @@ import { ContratosChinandegaComponent } from './components/contratos-chinandega/
 import { AgendaContactosChinandegaComponent } from './components/agenda-contactos-chinandega/agenda-contactos-chinandega.component';
 import { AngularMaterialModule } from './shared/modules/angular-material.module';
 import { PaginatedTableComponent } from './shared/components/paginated-table/paginated-table.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -109,6 +111,8 @@ import { PaginatedTableComponent } from './shared/components/paginated-table/pag
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

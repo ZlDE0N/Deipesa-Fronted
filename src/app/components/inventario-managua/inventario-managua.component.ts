@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Material } from 'src/app/models/Material';
-import { TableColumn } from 'src/app/shared/components/paginated-table/paginated-table.component';
+import {
+  TableAction,
+  TableColumn,
+  TableRowAction,
+} from 'src/app/shared/components/paginated-table/paginated-table.component';
+import { Observable } from 'rxjs';
+import { MaterialService } from 'src/app/services/material.service';
 
 @Component({
   selector: 'app-inventario-managua',
@@ -47,23 +53,42 @@ export class InventarioManaguaComponent implements OnInit {
     },
   ];
 
-  displayedColumns: string[] = this.tableColumns.map((c) => c.propertyName);
+  tableActions: TableAction<Material>[] = [
+    {
+      label: 'Agregar material',
+      icon: 'add',
+      color: 'primary',
+      action: () => {
+        console.log('Agregar material');
+      },
+    },
+  ];
 
-  constructor() {}
+  rowActions: TableRowAction<Material>[] = [
+    {
+      icon: 'edit',
+      tooltip: 'Editar',
+      color: 'primary',
+      action: (row: Material) => console.log('Edit', row),
+    },
+    {
+      icon: 'delete',
+      tooltip: 'Eliminar',
+      color: 'warn',
+      action: (row: Material) => console.log('Delete', row),
+    },
+  ];
 
-  ngOnInit(): void {}
+  displayedColumns: string[] = [
+    ...this.tableColumns.map((c) => c.propertyName),
+    'actions',
+  ];
 
-  dataSource = [];
+  materials$!: Observable<Material[]>;
 
-  onCreateMaterial() {
-    // Lógica para crear un nuevo material
-  }
+  constructor(private materialService: MaterialService) {}
 
-  onEdit(materialId: number) {
-    // Lógica para editar el material con el ID proporcionado
-  }
-
-  onDelete(materialId: number) {
-    // Lógica para eliminar el material con el ID proporcionado
+  ngOnInit(): void {
+    this.materials$ = this.materialService.getAll();
   }
 }

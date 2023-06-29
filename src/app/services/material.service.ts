@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Material } from '../shared/models/Material';
-import { BaseCrudService } from '../shared/services/BaseCrudService';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
+import { Material } from '../models/Material';
+import { PaginatedCrud } from '../shared/services/PaginatedCrud';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MaterialService extends BaseCrudService<Material, string> {
+export class MaterialService extends PaginatedCrud<
+  Material,
+  string,
+  Omit<Material, 'idMaterial'>,
+  Omit<Material, 'idMaterial'>
+> {
   constructor(http: HttpClient) {
     const resourceUrl = `${environment.apiBaseUrl}${environment.materialesEndpoint}`;
-    super(resourceUrl, http);
+    super(http, resourceUrl);
   }
 
   getAllWithOrderDetails(): Observable<Material[]> {
