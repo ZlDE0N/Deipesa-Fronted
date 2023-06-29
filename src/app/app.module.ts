@@ -59,6 +59,7 @@ import { InventoryEditDialogComponent } from './components/inventory-edit-dialog
 import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
 import { ProveedorEditDialogComponent } from './components/proveedor-edit-dialog/proveedor-edit-dialog.component';
 import { ContratoEditDialogComponent } from './components/contrato-edit-dialog/contrato-edit-dialog.component';
+import { ContactEditDialogComponent } from './components/contact-edit-dialog/contact-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { ContratoEditDialogComponent } from './components/contrato-edit-dialog/c
     ConfirmDialogComponent,
     ProveedorEditDialogComponent,
     ContratoEditDialogComponent,
+    ContactEditDialogComponent,
   ],
   imports: [
     BrowserModule,
