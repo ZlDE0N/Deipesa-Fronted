@@ -5,4 +5,5 @@ export const environment = {
   facturasEndpoint: 'Facturas/',
   almacenesEndpoint: 'Almacenes/',
   inventariosEndpoint: 'Inventarios/',
+  ciudadesEndpoint: 'Ciudades/',
 };
