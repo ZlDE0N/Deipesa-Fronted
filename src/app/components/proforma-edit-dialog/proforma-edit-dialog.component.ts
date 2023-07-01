@@ -43,6 +43,7 @@ export class ProformaEditDialogComponent
         Validators.min(1),
       ]),
       nombre: new FormControl<string>('', Validators.required),
+      url: new FormControl<string>('', Validators.required),
       fecha: new FormControl<string>('', [Validators.required]),
     });
   }
@@ -56,6 +57,7 @@ export class ProformaEditDialogComponent
     const data = <Proforma>{
       ciudadId: this.form.get('ciudadId')?.value,
       nombre: this.form.get('nombre')?.value,
+      url: this.form.get('url')?.value,
       fecha: this.form.get('fecha')?.value,
     };
 

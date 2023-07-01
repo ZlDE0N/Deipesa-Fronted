@@ -32,6 +32,13 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
+        <mat-label>URL</mat-label>
+        <input matInput required formControlName="url" />
+        <mat-error *ngFor="let error of getErrors(form.get('url')!, 'URL')">
+          {{ error }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
         <mat-label>Fecha</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="fecha" />
         <mat-hint>DD/MM/YYYY</mat-hint>

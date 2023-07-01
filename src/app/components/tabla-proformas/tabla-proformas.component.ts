@@ -65,6 +65,12 @@ export class TablaProformasComponent implements OnInit {
       action: (proforma: Proforma) => this.onEdit(proforma),
     },
     {
+      icon: 'open_in_new',
+      tooltip: 'Ir a drive',
+      color: 'accent',
+      action: (proforma: Proforma) => this.onGoToDrive(proforma),
+    },
+    {
       icon: 'delete',
       tooltip: 'Eliminar',
       color: 'warn',
@@ -175,5 +181,9 @@ export class TablaProformasComponent implements OnInit {
         });
       }
     });
+  }
+
+  onGoToDrive(proforma: Proforma): void {
+    window.open(proforma.url, '_blank');
   }
 }
