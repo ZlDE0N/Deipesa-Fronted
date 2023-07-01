@@ -42,6 +42,7 @@ import { GestionMaterialesChinandegaComponent } from './components/gestion-mater
 import { ContratosChinandegaComponent } from './components/contratos-chinandega/contratos-chinandega.component';
 import { AgendaContactosChinandegaComponent } from './components/agenda-contactos-chinandega/agenda-contactos-chinandega.component';
 import { ProveedoresChinandegaComponent } from './components/proveedores-chinandega/proveedores-chinandega.component';
+import { TablaProformasComponent } from './components/tabla-proformas/tabla-proformas.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -67,6 +68,7 @@ const routes: Routes = [
   { path: 'spinners', component: SpinnersComponent },
   { path: 'tables-data', component: TablesDataComponent },
   { path: 'tables-general', component: TablesGeneralComponent },
+  { path: 'proformas', component: TablaProformasComponent },
   { path: 'tabs', component: TabsComponent },
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'pages-blank', component: PagesBlankComponent },

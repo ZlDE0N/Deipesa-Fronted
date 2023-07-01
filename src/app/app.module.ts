@@ -60,6 +60,8 @@ import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confi
 import { ProveedorEditDialogComponent } from './components/proveedor-edit-dialog/proveedor-edit-dialog.component';
 import { ContratoEditDialogComponent } from './components/contrato-edit-dialog/contrato-edit-dialog.component';
 import { ContactEditDialogComponent } from './components/contact-edit-dialog/contact-edit-dialog.component';
+import { TablaProformasComponent } from './components/tabla-proformas/tabla-proformas.component';
+import { ProformaEditDialogComponent } from './components/proforma-edit-dialog/proforma-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +117,8 @@ import { ContactEditDialogComponent } from './components/contact-edit-dialog/con
     ProveedorEditDialogComponent,
     ContratoEditDialogComponent,
     ContactEditDialogComponent,
+    TablaProformasComponent,
+    ProformaEditDialogComponent,
   ],
   imports: [
     BrowserModule,
