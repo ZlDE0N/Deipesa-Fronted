@@ -1,5 +1,6 @@
 import { Almacen } from './Almacen';
 import { Cliente } from './Cliente';
+import { Proforma } from './Proforma';
 import { Proveedor } from './Proveedor';
 
 export interface Ciudad {
@@ -9,4 +10,5 @@ export interface Ciudad {
   almacenes?: Almacen[];
   proveedores?: Proveedor[];
   clientes?: Cliente[];
+  proformas?: Proforma[];
 }

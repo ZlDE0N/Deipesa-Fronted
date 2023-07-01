@@ -8,4 +8,5 @@ export const environment = {
   ciudadesEndpoint: 'Ciudades/',
   contratosEndpoint: 'Contratos/',
   clientesEndpoint: 'Clientes/',
+  proformasEndpoint: 'Proformas/',
 };
