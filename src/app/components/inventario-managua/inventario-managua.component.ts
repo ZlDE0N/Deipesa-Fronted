@@ -24,6 +24,7 @@ import {
 import { InventarioService } from 'src/app/services/inventario.service';
 import { Ciudad } from 'src/app/models/Ciudad';
 import { CiudadService } from 'src/app/services/ciudad.service';
+import { ReporteService } from 'src/app/services/reporte.service';
 
 @Component({
   selector: 'app-inventario-managua',
@@ -72,6 +73,15 @@ export class InventarioManaguaComponent implements OnInit {
     },
   ];
 
+  tableActions: TableAction<Inventario>[] = [
+    {
+      icon: 'download',
+      label: 'Generar reporte',
+      color: 'accent',
+      action: (rows: Inventario[]) => this.getReport(rows),
+    },
+  ];
+
   displayedColumns: string[] = this.tableColumns.map((c) => c.propertyName);
 
   warehouse$!: Observable<Almacen>;
@@ -81,6 +91,7 @@ export class InventarioManaguaComponent implements OnInit {
   constructor(
     private almacenService: AlmacenService,
     private inventoryService: InventarioService,
+    private reporteService: ReporteService,
     private citiesService: CiudadService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
@@ -190,5 +201,20 @@ export class InventarioManaguaComponent implements OnInit {
           });
       }
     });
+  }
+
+  async getReport(rows: Inventario[]) {
+    const city = await lastValueFrom(this.city$);
+    this.reporteService
+      .getInventoryReportByCityId(city.id)
+      .subscribe((data) => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = `Inventario de ${city.name}.pdf`;
+        link.click();
+      });
   }
 }

@@ -9,4 +9,5 @@ export const environment = {
   contratosEndpoint: 'Contratos/',
   clientesEndpoint: 'Clientes/',
   proformasEndpoint: 'Proformas/',
+  reportesEndpoint: 'Reportes/',
 };

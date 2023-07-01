@@ -1,6 +1,7 @@
 <main id="main" class="main">
   <app-paginated-table
     [columns]="tableColumns"
+    [tableActions]="tableActions"
     [displayedColumns]="displayedColumns"
     [rows]="(inventories$ | async) ?? []"
     tableClasses="mat-elevation-z8"
