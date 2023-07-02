@@ -3,16 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 import { Material } from '../models/Material';
-import { PaginatedCrud } from '../shared/services/PaginatedCrud';
+import { Crud } from '../shared/services/Crud';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MaterialService extends PaginatedCrud<
+export class MaterialService extends Crud<
   Material,
   string,
-  Omit<Material, 'idMaterial'>,
-  Omit<Material, 'idMaterial'>
+  Material,
+  Material
 > {
   constructor(http: HttpClient) {
     const resourceUrl = `${environment.apiBaseUrl}${environment.materialesEndpoint}`;

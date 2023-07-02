@@ -93,6 +93,12 @@ export class ContratosChinandegaComponent implements OnInit {
       action: (row: Contrato) => this.onEditContract(row),
     },
     {
+      icon: 'open_in_new',
+      tooltip: 'Ir a drive',
+      color: 'accent',
+      action: (row: Contrato) => this.goToContract(row),
+    },
+    {
       icon: 'delete',
       tooltip: 'Eliminar',
       color: 'warn',
@@ -205,5 +211,9 @@ export class ContratosChinandegaComponent implements OnInit {
         });
       }
     });
+  }
+
+  goToContract(row: Contrato): void {
+    window.open(row.url, '_blank');
   }
 }

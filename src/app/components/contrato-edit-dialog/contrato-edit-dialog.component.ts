@@ -50,6 +50,7 @@ export class ContratoEditDialogComponent
       clienteId: new FormControl('', [Validators.required]),
       nombre: new FormControl('', Validators.required),
       nombreAcordado: new FormControl('', Validators.required),
+      url: new FormControl('', Validators.required),
       fecha: new FormControl('', Validators.required),
     });
   }
@@ -69,6 +70,7 @@ export class ContratoEditDialogComponent
       nombre: this.form.get('nombre')?.value,
       nombreAcordado: this.form.get('nombreAcordado')?.value,
       fecha: this.form.get('fecha')?.value,
+      url: this.form.get('url')?.value,
     };
 
     if (this.data.id) {

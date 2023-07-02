@@ -33,7 +33,6 @@ export class AuthService {
   }
 
   public get user(): DecodedUserToken | null {
-    console.log(jwtDecode(this.token!));
     if (!this.isAuthenticated) {
       return null;
     } else {

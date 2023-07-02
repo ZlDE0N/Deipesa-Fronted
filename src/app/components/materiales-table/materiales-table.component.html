@@ -1,0 +1,11 @@
+<main class="main" id="main">
+  <app-paginated-table
+    [columns]="tableColumns"
+    [tableActions]="tableActions"
+    [displayedColumns]="displayedColumns"
+    [rowActions]="rowActions"
+    tableClasses="mat-elevation-z8"
+    [rows]="(materiales$ | async) ?? []"
+  >
+  </app-paginated-table>
+</main>

@@ -62,6 +62,8 @@ import { ContratoEditDialogComponent } from './components/contrato-edit-dialog/c
 import { ContactEditDialogComponent } from './components/contact-edit-dialog/contact-edit-dialog.component';
 import { TablaProformasComponent } from './components/tabla-proformas/tabla-proformas.component';
 import { ProformaEditDialogComponent } from './components/proforma-edit-dialog/proforma-edit-dialog.component';
+import { MaterialesTableComponent } from './components/materiales-table/materiales-table.component';
+import { MaterialEditDialogComponent } from './components/material-edit-dialog/material-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -119,6 +121,8 @@ import { ProformaEditDialogComponent } from './components/proforma-edit-dialog/p
     ContactEditDialogComponent,
     TablaProformasComponent,
     ProformaEditDialogComponent,
+    MaterialesTableComponent,
+    MaterialEditDialogComponent,
   ],
   imports: [
     BrowserModule,

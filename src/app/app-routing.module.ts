@@ -44,6 +44,7 @@ import { AgendaContactosChinandegaComponent } from './components/agenda-contacto
 import { ProveedoresChinandegaComponent } from './components/proveedores-chinandega/proveedores-chinandega.component';
 import { TablaProformasComponent } from './components/tabla-proformas/tabla-proformas.component';
 import { AuthGuard } from './guards/auth.guard';
+import { MaterialesTableComponent } from './components/materiales-table/materiales-table.component';
 
 const routes: Routes = [
   {
@@ -185,6 +186,10 @@ const routes: Routes = [
   {
     path: 'agenda-contactos-chinandega',
     component: AgendaContactosChinandegaComponent,
+  },
+  {
+    path: 'materiales',
+    component: MaterialesTableComponent,
   },
   { path: '', component: DashboardComponent },
 ];

@@ -6,5 +6,6 @@ export interface Contrato {
   nombre: string;
   nombreAcordado: string;
   fecha: string;
+  url: string;
   cliente?: Cliente;
 }
