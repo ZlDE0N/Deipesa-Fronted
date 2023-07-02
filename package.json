@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "jwt-decode": "^3.1.2",
     "rxjs": "~7.5.0",
     "short-unique-id": "^4.4.4",
     "short-uuid": "^4.2.2",

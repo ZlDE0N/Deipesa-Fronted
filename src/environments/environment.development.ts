@@ -10,4 +10,9 @@ export const environment = {
   clientesEndpoint: 'Clientes/',
   proformasEndpoint: 'Proformas/',
   reportesEndpoint: 'Reportes/',
+  loginEndpoint: 'auth/login/',
+  registerEndpoint: 'auth/register/',
+  checkEmailEndpoint: 'auth/check-email/',
+  checkUsernameEndpoint: 'auth/check-username/',
+  tokenKey: 'authToken',
 };
