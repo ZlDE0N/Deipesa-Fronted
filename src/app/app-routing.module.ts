@@ -136,7 +136,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'tabs', component: TabsComponent, canActivate: [AuthGuard] },
-  { path: 'tooltips', component: TooltipsComponent },
+  { path: 'tooltips', component: TooltipsComponent, canActivate: [AuthGuard] },
   {
     path: 'pages-blank',
     component: PagesBlankComponent,
@@ -161,37 +161,63 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   // Alamacen Managua
-  { path: 'inventario-managua', component: InventarioManaguaComponent },
+  {
+    path: 'inventario-managua',
+    component: InventarioManaguaComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'gestion-materiales-managua',
     component: GestionMaterialesManaguaComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'proveedores-managua', component: ProveedoresManaguaComponent },
-  { path: 'contratos-managua', component: ContratosManaguaComponent },
+  {
+    path: 'proveedores-managua',
+    component: ProveedoresManaguaComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'contratos-managua',
+    component: ContratosManaguaComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'agenda-contactos-managua',
     component: AgendaContactosManaguaComponent,
+    canActivate: [AuthGuard],
   },
   // Almacen Chinandega
-  { path: 'inventario-chinandega', component: InventarioChinandegaComponent },
+  {
+    path: 'inventario-chinandega',
+    component: InventarioChinandegaComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'gestion-materiales-chinandega',
     component: GestionMaterialesChinandegaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'proveedores-chinanadega',
     component: ProveedoresChinandegaComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'contratos-chinandega', component: ContratosChinandegaComponent },
+  {
+    path: 'contratos-chinandega',
+    component: ContratosChinandegaComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'agenda-contactos-chinandega',
     component: AgendaContactosChinandegaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'materiales',
     component: MaterialesTableComponent,
+    canActivate: [AuthGuard],
   },
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
