@@ -22,7 +22,7 @@ export class PagesLoginComponent extends FormComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/materiales']);
     }
   }
 
@@ -35,7 +35,7 @@ export class PagesLoginComponent extends FormComponent implements OnInit {
     };
 
     this.auth.login(loginRequest).subscribe((tokenDto) => {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/materiales']);
     });
   }
 }
