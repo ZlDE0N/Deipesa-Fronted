@@ -67,7 +67,7 @@ export class MaterialesTableComponent implements OnInit {
 
   tableActions: TableAction<Material>[] = [
     {
-      label: 'Agregar material',
+      label: 'Agregar tipo Material',
       icon: 'add',
       color: 'primary',
       action: (materiales: Material[]) => this.onAdd(),

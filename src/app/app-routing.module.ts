@@ -47,12 +47,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { MaterialesTableComponent } from './components/materiales-table/materiales-table.component';
 
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard] },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   canActivate: [AuthGuard],
+  // },
+  // { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard] },
   {
     path: 'accordion',
     component: AccordionComponent,
