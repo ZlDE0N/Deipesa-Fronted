@@ -19,6 +19,14 @@ export class MaterialService extends Crud<
     super(http, resourceUrl);
   }
 
+  checkDuplicity(material: Material): Observable<boolean> {
+    console.log('checking');
+    return this.http.post<boolean>(
+      `${this.resourceUrl}check-duplicity`,
+      material
+    );
+  }
+
   getAllWithOrderDetails(): Observable<Material[]> {
     return this.http.get<Material[]>(`${this.resourceUrl}with-order-details`);
   }

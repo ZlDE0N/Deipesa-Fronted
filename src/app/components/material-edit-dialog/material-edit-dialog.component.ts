@@ -1,5 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
   EditDialogComponent,
@@ -9,6 +16,7 @@ import {
 import ShortUniqueId from 'short-unique-id';
 import { Material } from 'src/app/models/Material';
 import { MaterialService } from 'src/app/services/material.service';
+import { Observable, Subject, map } from 'rxjs';
 
 const uid = new ShortUniqueId({
   length: 5,
@@ -35,17 +43,38 @@ export class MaterialEditDialogComponent
 
     this.service = materialService;
     this.title = 'Nuevo Material';
+  }
 
-    this.form = new FormGroup({
-      nombreMaterial: new FormControl('', [Validators.required]),
-      unidadDeMedida: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', [Validators.required]),
-      marca: new FormControl('', [Validators.required]),
-      pvu: new FormControl<number | null>(null, [
-        Validators.required,
-        Validators.min(1),
-      ]),
-    });
+  override ngOnInit(): void {
+    super.ngOnInit();
+
+    this.form = new FormGroup(
+      {
+        nombreMaterial: new FormControl('', [Validators.required]),
+        unidadDeMedida: new FormControl('', [Validators.required]),
+        descripcion: new FormControl('', [Validators.required]),
+        marca: new FormControl('', [Validators.required]),
+        pvu: new FormControl<number | null>(null, [
+          Validators.required,
+          Validators.min(1),
+        ]),
+      },
+      {
+        asyncValidators: [this.checkMaterialDuplicity()],
+      }
+    );
+  }
+
+  checkMaterialDuplicity(): AsyncValidatorFn {
+    return (): Observable<ValidationErrors | null> => {
+      const resource = this.getFormData();
+      console.log('The resource is here');
+      return this.materialService.checkDuplicity(resource).pipe(
+        map((isDupe) => {
+          return isDupe ? { isDupe: true } : null;
+        })
+      );
+    };
   }
 
   override getFormData(): Material {

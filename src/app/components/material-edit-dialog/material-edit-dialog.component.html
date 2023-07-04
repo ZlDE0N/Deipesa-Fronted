@@ -5,6 +5,12 @@
 <ng-container *ngIf="!isBusy">
   <h3 mat-dialog-title>{{ title }}</h3>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      class="error-container"
+      *ngIf="form.errors?.['isDupe'] && (form.touched || form.dirty)"
+    >
+      Ya existe un material con estos datos
+    </div>
     <div mat-dialog-content class="fields">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
