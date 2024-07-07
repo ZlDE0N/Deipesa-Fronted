@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Material } from 'src/app/models/Material';
-import { MaterialService } from 'src/app/services/material.service';
-import {
-  TableAction,
-  TableColumn,
-  TableRowAction,
-} from 'src/app/shared/components/paginated-table/paginated-table.component';
 import { MaterialEditDialogComponent } from '../material-edit-dialog/material-edit-dialog.component';
 import {
   BaseEditDialogData,
@@ -19,6 +13,7 @@ import {
   ConfirmDialogData,
   ConfirmDialogResult,
 } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { TableAction, TableColumn, TableRowAction } from 'src/app/shared/components/paginated-table/paginated-table.component';
 
 @Component({
   selector: 'app-materiales-table',
@@ -70,7 +65,7 @@ export class MaterialesTableComponent implements OnInit {
       label: 'Agregar tipo Material',
       icon: 'add',
       color: 'primary',
-      action: (materiales: Material[]) => this.onAdd(),
+      action: () => this.onAdd(),
     },
   ];
 
@@ -94,35 +89,51 @@ export class MaterialesTableComponent implements OnInit {
     'actions',
   ];
 
-  materiales$!: Observable<Material[]>;
+  materiales: Material[] = [
+    {
+      idMaterial: '1', // Ejemplo usando idMaterial como string
+      nombreMaterial: 'Material de ejemplo',
+      unidadDeMedida: 'Unidad',
+      descripcion: 'Descripción del material',
+      marca: 'Marca del material',
+      pvu: 100.50,
+      detalleOrdenCompras: [],
+      inventarios: [],
+    },
+    {
+      idMaterial: '2', // Ejemplo usando idMaterial como string
+      nombreMaterial: 'Material 2',
+      unidadDeMedida: 'Unidad',
+      descripcion: 'Descripción del material 2',
+      marca: 'Marca 2',
+      pvu: 200.75,
+      detalleOrdenCompras: [],
+      inventarios: [],
+    },
+    // Agrega más materiales según sea necesario
+  ];
 
-  constructor(
-    private materialService: MaterialService,
-    private dialog: MatDialog,
-    private snackBar: MatSnackBar
-  ) {}
+  materiales$: Observable<Material[]> = of(this.materiales);
 
-  ngOnInit(): void {
-    this.loadData();
-  }
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
-  loadData() {
-    this.materiales$ = this.materialService.getAll();
-  }
+  ngOnInit(): void {}
 
   onAdd(): void {
-    const dialogRef = this.dialog.open<
+    const dialogRef: MatDialogRef<MaterialEditDialogComponent, BaseEditDialogResult<Material>> = this.dialog.open(
       MaterialEditDialogComponent,
-      BaseEditDialogData<string>,
-      BaseEditDialogResult<Material>
-    >(MaterialEditDialogComponent);
+      {
+        data: {
+          // Puedes pasar datos necesarios aquí si MaterialEditDialogComponent lo requiere
+        },
+      }
+    );
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result?.success) {
         this.snackBar.open('Material agregado', 'Aceptar', {
           duration: 3000,
         });
-        this.loadData();
       } else if (result?.success === false) {
         this.snackBar.open('Error al agregar material', 'Aceptar', {
           duration: 3000,
@@ -132,22 +143,20 @@ export class MaterialesTableComponent implements OnInit {
   }
 
   onEdit(material: Material): void {
-    const dialogRef = this.dialog.open<
+    const dialogRef: MatDialogRef<MaterialEditDialogComponent, BaseEditDialogResult<Material>> = this.dialog.open(
       MaterialEditDialogComponent,
-      BaseEditDialogData<string>,
-      BaseEditDialogResult<Material>
-    >(MaterialEditDialogComponent, {
-      data: {
-        id: material.idMaterial,
-      },
-    });
+      {
+        data: {
+          id: material.idMaterial.toString(), // Asegúrate de pasar el ID como string si es requerido por MaterialEditDialogComponent
+        },
+      }
+    );
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result?.success) {
         this.snackBar.open('Material editado', 'Aceptar', {
           duration: 3000,
         });
-        this.loadData();
       } else if (result?.success === false) {
         this.snackBar.open('Error al editar material', 'Aceptar', {
           duration: 3000,
@@ -157,40 +166,31 @@ export class MaterialesTableComponent implements OnInit {
   }
 
   onDelete(material: Material): void {
-    const dialogRef = this.dialog.open<
+    const dialogRef: MatDialogRef<ConfirmDialogComponent, ConfirmDialogResult> = this.dialog.open(
       ConfirmDialogComponent,
-      ConfirmDialogData,
-      ConfirmDialogResult
-    >(ConfirmDialogComponent, {
-      data: {
-        title: 'Eliminar material',
-        message: `¿Está seguro que desea eliminar el material "${material.nombreMaterial}"?`,
-        cancelColor: 'primary',
-        cancelIcon: 'cancel',
-        confirmColor: 'warn',
-        confirmIcon: 'warning',
-      },
-    });
+      {
+        data: {
+          title: 'Eliminar material',
+          message: `¿Está seguro que desea eliminar el material "${material.nombreMaterial}"?`,
+          cancelColor: 'primary',
+          cancelIcon: 'cancel',
+          confirmColor: 'warn',
+          confirmIcon: 'warning',
+        },
+      }
+    );
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result?.confirmed) {
-        this.materialService.delete(material.idMaterial).subscribe({
-          next: (data) => {
-            this.snackBar.open(
-              `Material "${material.nombreMaterial}" eliminado`,
-              'Aceptar',
-              {
-                duration: 3000,
-              }
-            );
-            this.loadData();
-          },
-          error: (err) => {
-            this.snackBar.open('Error al eliminar material', 'Aceptar', {
-              duration: 3000,
-            });
-          },
-        });
+        this.materiales = this.materiales.filter((m) => m.idMaterial !== material.idMaterial);
+        this.materiales$ = of(this.materiales); // Actualizar el Observable de materiales
+        this.snackBar.open(
+          `Material "${material.nombreMaterial}" eliminado`,
+          'Aceptar',
+          {
+            duration: 3000,
+          }
+        );
       }
     });
   }

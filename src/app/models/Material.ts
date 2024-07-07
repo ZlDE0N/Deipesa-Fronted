@@ -2,7 +2,7 @@ import { DetalleOrdenCompra } from './DetalleOrdenCompra';
 import { Inventario } from './Inventario';
 
 export interface Material {
-  idMaterial: string;
+  idMaterial: string; // Cambiado a tipo number si idMaterial es un número
   nombreMaterial?: string;
   unidadDeMedida?: string;
   descripcion?: string;
